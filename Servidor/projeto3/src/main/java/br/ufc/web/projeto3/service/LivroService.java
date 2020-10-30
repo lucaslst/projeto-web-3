@@ -39,19 +39,13 @@ public class LivroService {
         return livroRepo.findById(id).get();
     }
     
-    /*public List<Usuario> getUsuarioByCargo(String cargo) {
-        return userRepo.findByCargo(cargo);
+    public List<Livro> getLivroByAutor(String autor) {
+        return livroRepo.findByAutor(autor);
     }
     
-    @PersistenceContext
-    private EntityManager entityManager;
-    
-    public List<Funcionario> getFuncionarioByQuantidade(int quantidade){
-    	List<Funcionario> consulta = entityManager.createQuery("SELECT funcionario from funcionarios funcionario ORDER BY funcionario.id", Funcionario.class).setMaxResults(quantidade).getResultList();
-    	
-    	return consulta;
+    public List<Livro> getLivroByGenero(String genero) {
+        return livroRepo.findByGenero(genero);
     }
-    */
     
     public Livro updateLivro(Integer id, String titulo, String genero, String autor, String sinopse, String datapublicacao, Integer numerototalcapitulos){
         Livro livroAux = livroRepo.findById(id).get();

@@ -54,14 +54,13 @@ public class LivroController {
         return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
     }
     
-    /*@RequestMapping(method = RequestMethod.GET, value = "/search", params = "cargo")
-    public ResponseEntity<List<Funcionario>> getFuncionarioByCargo(@RequestParam("cargo") String cargo){
-    	return new ResponseEntity<List<Funcionario>>(funcService.getFuncionarioByCargo(cargo), HttpStatus.OK);
+    @RequestMapping(method = RequestMethod.GET, value = "/search", params = "autor")
+    public ResponseEntity<List<Livro>> getLivroByAutor(@RequestParam("autor") String autor){
+    	return new ResponseEntity<List<Livro>>(livroService.getLivroByAutor(autor), HttpStatus.OK);
     }
     
-    @RequestMapping(method = RequestMethod.GET, value = "/page", params = "quantidade")
-    public ResponseEntity<List<Funcionario>> getFuncionarioByQuantidade(@RequestParam("quantidade") Integer quantidade){
-    	return new ResponseEntity<List<Funcionario>>(funcService.getFuncionarioByQuantidade(quantidade), HttpStatus.OK);
+    @RequestMapping(method = RequestMethod.GET, value = "/search", params = "genero")
+    public ResponseEntity<List<Livro>> getLivroByGenero(@RequestParam("genero") String genero){
+    	return new ResponseEntity<List<Livro>>(livroService.getLivroByGenero(genero), HttpStatus.OK);
     }
-    */
 }

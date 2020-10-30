@@ -8,10 +8,10 @@
    
       <ul>
         <li><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Genêros</a></li>
-        <li><a href="#">Autores</a></li>
-        <li><a href="#">Publicar</a></li>
+        <li><a href="" @click="home">Início</a></li>
+        <li><a href="" @click="genero">Genêros</a></li>
+        <li><a href="" @click="autor">Autores</a></li>
+        <li><a href="" @click="publicar">Publicar</a></li>
         <li><a href="#">Perfil</a></li>
         <li>
             <input type="search" id="texto"  placeholder="Oq você procura?">
@@ -167,7 +167,22 @@
 <script>
 
 export default {
-  name: 'Home'
+  name: 'Home',
+
+  methods: {
+  autor() {
+     this.$router.push({ name: "Autor"}).catch(()=>{});
+   },
+   publicar() {
+     this.$router.push({ name: "Publicar"}).catch(()=>{});
+   },
+    genero() {
+     this.$router.push({ name: "Genero"}).catch(()=>{});
+   }, 
+   home() {
+     this.$router.push({ name: "Home"}).catch(()=>{});
+   }
+  }
 }
 </script>
 

@@ -1,16 +1,17 @@
 <template>
-  <div class="cadastrous">
+  <div class="publicar">
    
     <div class="container-fluid">
     <div class="row">
     <form class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
         <img src="../assets/c.png" alt="error" height="110" width="350" >
         <div class="col">
-        <input type="text" id="user" class="form-control " placeholder="Usuário" v-model="usuario"><br>
-        <input type="email" id="email" class="form-control mb-4" placeholder="E-mail" v-model="email">
-        <input type="text" id="nascimento" class="form-control mb-4" placeholder="Data de nascimento" v-model="datanascimento">
-        <input type="password" id="senha" class="form-control mb-4" placeholder="Senha" v-model="senha">
-        <input type="password" id="confirmasenha" class="form-control mb-4" placeholder="Confirmar Senha" v-model="confirmasenha">
+        <input type="text" id="titulo" class="form-control " placeholder="Título" v-model="titulo"><br>
+        <input type="text" id="genero" class="form-control " placeholder="Genero" v-model="genero"><br>
+        <input type="text" id="autor" class="form-control " placeholder="Autor" v-model="autor"><br>
+        <input type="text" id="sinopse" class="form-control " placeholder="sinopse" v-model="sinopse">
+        <input type="date" id="datapublicacao" class="form-control " placeholder="Data de Publicacao" v-model="datapublicacao">
+        <input type="text" id="numerototalcapitulos" class="form-control " placeholder="Número Total de Capítulos" v-model="numerototalcapitulos">
         
         </div>
         
@@ -25,34 +26,36 @@
 <script>
 
 export default {
-name: 'Cadastrousuario',
+ name: 'Publicar', 
  data: function() {
     return {
-      usuario: "",
-      email: "",
-      datanascimento: "",
-      senha: "",
-      confirmasenha: "",
-      baseURI: "http://localhost:8080/api/usuarios",
+      titulo: "",
+      genero: "",
+      autor:"",
+      sinopse:"",
+      datapublicacao: "",
+      numerototalcapitulos: "",
+      livro: {},
+      baseURI: "http://localhost:8080/api/livros",
     };
   },
   methods: {
     salvar: function() {
       let obj = {
-        usuario: this.usuario,
-        email: this.email,
-        datanascimento: this.datanascimento,
-        senha: this.senha
+        titulo: this.titulo,
+        genero: this.genero,
+        autor: this.autor,
+        sinopse: this.sinopse,
+        datapublicacao: this.datapublicacao,
+        numerototalcapitulos: this.numerototalcapitulos
       };
 
       this.$http.post(this.baseURI, obj).then((result) => {
-        if (result.data != "") {
-          
           alert("Cadastro realizado com sucesso!");
-          this.$router.push({ name: 'Home'});
-        } 
+          console.log(result);
+          this.livro = result.data;
+          this.$router.push({ name: 'Home'}); 
       });
-
  },
  },
 };
