@@ -1,30 +1,28 @@
 <template>
 <div class = "home">
 
- <header>
+ <header id= "home3">
     
-    <div class="center">
+    <div class="center" id="home1">
     <nav>
    
-      <ul>
-        <li><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
-        <li><a href="" @click="home">Início</a></li>
-        <li><a href="" @click="genero">Genêros</a></li>
-        <li><a href="" @click="autor">Autores</a></li>
-        <li><a href="" @click="publicar">Publicar</a></li>
-        <li><a href="#">Perfil</a></li>
-        <li>
+      <ul id="home2">
+        <li class= "h5"><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
+        <li class= "h5"><a class = "h6" href="" @click="home">Início</a></li>
+        <li class= "h5"><a class = "h6" href="" @click="genero">Genêros</a></li>
+        <li class= "h5"><a class = "h6" href="" @click="autor">Autores</a></li>
+        <li class= "h5"><a class = "h6" href="" @click="publicar">Publicar</a></li>
+        <li class= "h5"><a class = "h6" href="">Perfil</a></li>
+        <li class= "h5">
             <input type="search" id="texto"  placeholder="Oq você procura?">
             <img src="../assets/lupa2-removebg-preview.png" height="48" width="60" walt="" class="btn">
-
-        </li>
+       </li>
       </ul>
-
     </nav>
   </div>
   </header>
   
-    <div class = "container">
+    <div class ="container">
         <div class="row">
             <div class="col-4">
                 <div class="card bg-light m-3" style="width: 15rem;  border-radius: 50px 50px 50px 50px;" >
@@ -56,7 +54,7 @@
                         <img class="d-block h-100 w-100" src="../assets/slidep.jpeg" alt="Terceiro Slide">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block h-100 w-100" src="../assets/slidepp.jpg" alt="Terceiro Slide">
+                        <img class="d-block h-100 w-100" src="../assets/slidepp.jpg" alt="Quarto Slide">
                       </div>
                     </div>
                     <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
@@ -76,7 +74,7 @@
     <h2 style="color: ivory; font-weight:bolder;" >Destaques</h2>
     </div>
     <p></p>
-    <div class = "container" style="height: auto;">
+    <div class ="container" style="height: auto;">
         <div class="row">
             <div class="col-4">
                 <div class="card" style="width: 18rem;height: 40rem;">
@@ -190,26 +188,26 @@ export default {
 
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
-.center{
+#home1{
  max-width: 1100px;
  margin: 0 150;
  padding: 0 2%;
 
 }
 
-ul{
+#home2{
 height: 100px;
 
 }
 
-header{
+#home3{
 
     padding: 6px 0;
     text-align: center;
     background:transparent;
 }
 
-header li{
+.h5{
     display: inline-block;
     margin: 0 10px;
 
@@ -223,7 +221,7 @@ header li{
             width: 100px;
           }
 
-header a{
+.h6{
 
     text-decoration: none;
     color: ivory;

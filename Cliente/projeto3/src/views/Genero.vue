@@ -1,19 +1,19 @@
 <template>
-<div class = "genero">
+<div class="genero">
 
- <header>
+ <header id="genero3">
     
-    <div class="center">
+    <div class="center" id="genero1">
     <nav>
    
-      <ul>
-        <li><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
-        <li><a href="" @click="home">Início</a></li>
-        <li><a href="" @click="genero">Genêros</a></li>
-        <li><a href="" @click="autor">Autores</a></li>
-        <li><a href="" @click="publicar">Publicar</a></li>
-        <li><a href="" >Perfil</a></li>
-        <li>
+      <ul id="genero2">
+        <li class="genero4"><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
+        <li class="genero4"><a class="genero5" href="" @click="home">Início</a></li>
+        <li class="genero4"><a class="genero5" href="" @click="genero">Genêros</a></li>
+        <li class="genero4"><a class="genero5" href="" @click="autor">Autores</a></li>
+        <li class="genero4"><a class="genero5" href="" @click="publicar">Publicar</a></li>
+        <li class="genero4"><a class="genero5" href="" >Perfil</a></li>
+        <li class="genero4" >
             <input type="search" id="texto"  placeholder="Oq você procura?">
             <img src="../assets/lupa2-removebg-preview.png" height="48" width="60" walt="" class="btn">
         </li>
@@ -22,8 +22,8 @@
   </div>
   </header>
   <br /><br />
-  <div class= "container" style="height: auto;">
-    <div class= "row">
+  <div class="container" style="height: auto;">
+    <div class="row">
         <input type="text" name="" id="genero" v-model="genero" /><br /><br />
         <button @click="getLivroByGenero" class="btn btn-success"> Listar Livros Por Genero </button><br /><br />
       <ul>
@@ -102,40 +102,32 @@ export default {
 
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
-.center{
+#genero1{
  max-width: 1100px;
  margin: 0 150;
  padding: 0 2%;
 
 }
 
-ul{
+#genero2{
 height: 100px;
 
 }
 
-header{
+#genero3{
 
     padding: 6px 0;
     text-align: center;
     background:transparent;
 }
 
-header li{
+.genero4{
     display: inline-block;
     margin: 0 10px;
 
 }
 
- #mid{
-            position: absolute;
-            left: 45%;
-            right: 50%;
-            height: 100px;
-            width: 100px;
-          }
-
-header a{
+.genero5{
 
     text-decoration: none;
     color: ivory;

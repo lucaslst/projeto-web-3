@@ -4,7 +4,7 @@
       <div class="row">
           <div class="col-md-6">
               <div class="card">
-                  <form class="box">
+                  <form class="box" id="boxLogin">
                     <img src="../assets/logof.png" alt="Erro" width=410 height=200>
                     <img src="../assets/frase.png" alt="Erro" width=400 height=80>
                       <input type="text" name="" id="elogin" placeholder="Email" v-model="email"> 
@@ -70,7 +70,7 @@ export default {
 
 <style>
 
-.box {
+#boxLogin .box {
     width: 500px;
     padding: 0px;
     position: absolute;

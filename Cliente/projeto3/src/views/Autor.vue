@@ -1,19 +1,19 @@
 <template>
 <div class = "autor">
 
- <header>
+ <header id = "autor3">
     
-    <div class="center">
+    <div class="center" id = "autor1">
     <nav>
    
-      <ul>
-        <li><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
-        <li><a href="" @click="home">Início</a></li>
-        <li><a href="" @click="genero">Genêros</a></li>
-        <li><a href="" @click="autor">Autores</a></li>
-        <li><a href="" @click="publicar">Publicar</a></li>
-        <li><a href="#" >Perfil</a></li>
-        <li>
+      <ul id = "autor2">
+        <li class= "autor4"><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
+        <li class= "autor4"><a class= "autor5" href="" @click="home">Início</a></li>
+        <li class= "autor4"><a class= "autor5" href="" @click="genero">Genêros</a></li>
+        <li class= "autor4"><a class= "autor5" href="" @click="autor">Autores</a></li>
+        <li class= "autor4"><a class= "autor5" href="" @click="publicar">Publicar</a></li>
+        <li class= "autor4"><a class= "autor5" href="#" >Perfil</a></li>
+        <li class= "autor4">
             <input type="search" id="texto"  placeholder="Oq você procura?">
             <img src="../assets/lupa2-removebg-preview.png" height="48" width="60" walt="" class="btn">
         </li>
@@ -22,8 +22,8 @@
   </div>
   </header>
   <br /><br />
-  <div class= "container" style="height: auto;">
-    <div class= "row">
+  <div class="container" style="height: auto;">
+    <div class="row">
         <input type="text" name="" id="autor" v-model="autor" /><br /><br />
         <button @click="getLivroByAutor" class="btn btn-success"> Listar Livros Por Autor </button><br /><br />
       <ul>
@@ -102,40 +102,32 @@ export default {
 
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
-.center{
+#autor1{
  max-width: 1100px;
  margin: 0 150;
  padding: 0 2%;
 
 }
 
-ul{
+#autor2{
 height: 100px;
 
 }
 
-header{
+#autor3{
 
     padding: 6px 0;
     text-align: center;
     background:transparent;
 }
 
-header li{
+.autor4{
     display: inline-block;
     margin: 0 10px;
 
 }
 
- #mid{
-            position: absolute;
-            left: 45%;
-            right: 50%;
-            height: 100px;
-            width: 100px;
-          }
-
-header a{
+.autor5{
 
     text-decoration: none;
     color: ivory;

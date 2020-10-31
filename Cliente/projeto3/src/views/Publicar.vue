@@ -3,19 +3,19 @@
    
     <div class="container-fluid">
     <div class="row">
-    <form class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
+    <form id= "public" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
         <img src="../assets/c.png" alt="error" height="110" width="350" >
         <div class="col">
-        <input type="text" id="titulo" class="form-control " placeholder="Título" v-model="titulo"><br>
-        <input type="text" id="genero" class="form-control " placeholder="Genero" v-model="genero"><br>
-        <input type="text" id="autor" class="form-control " placeholder="Autor" v-model="autor"><br>
+        <input type="text" id="titulo" class="form-control " placeholder="Título" v-model="titulo">
+        <input type="text" id="genero" class="form-control " placeholder="Genero" v-model="genero">
+        <input type="text" id="autor" class="form-control " placeholder="Autor" v-model="autor">
         <input type="text" id="sinopse" class="form-control " placeholder="sinopse" v-model="sinopse">
         <input type="date" id="datapublicacao" class="form-control " placeholder="Data de Publicacao" v-model="datapublicacao">
         <input type="text" id="numerototalcapitulos" class="form-control " placeholder="Número Total de Capítulos" v-model="numerototalcapitulos">
         
         </div>
         
-        <button class="btn btn-info my-4 btn-block" type="submit" @click="salvar" > Confirmar </button>
+        <button id="pubib" class="btn btn-info my-4 btn-block" type="submit" @click="salvar" > Confirmar </button>
         
     </form>
     </div>
@@ -63,7 +63,7 @@ export default {
 
 <style>
 
-form{
+#public{
     width: 500px;
     padding: 40px;
     left: 430px;
@@ -94,11 +94,29 @@ button[type="submit"] {
     cursor: pointer
 }
 
-button[type="submit"]:hover {
+#public input[type="text"],
+#public input[type="email"],
+#public input[type="date"],
+#public input[type="password"] {
+    border: 0;
+    background: white;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+button #pubib [type="submit"]:hover {
     background: #2ecc71
 }
 
-.forgot {
+.forgot{
     text-decoration: underline
 }
 </style>

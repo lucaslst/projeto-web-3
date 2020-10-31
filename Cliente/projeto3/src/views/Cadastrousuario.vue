@@ -3,10 +3,10 @@
    
     <div class="container-fluid">
     <div class="row">
-    <form class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
+    <form id= "cadus" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
         <img src="../assets/c.png" alt="error" height="110" width="350" >
         <div class="col">
-        <input type="text" id="user" class="form-control " placeholder="Usuário" v-model="usuario"><br>
+        <input type="text" id="user" class="form-control " placeholder="Nome" v-model="nome">
         <input type="email" id="email" class="form-control mb-4" placeholder="E-mail" v-model="email">
         <input type="text" id="nascimento" class="form-control mb-4" placeholder="Data de nascimento" v-model="datanascimento">
         <input type="password" id="senha" class="form-control mb-4" placeholder="Senha" v-model="senha">
@@ -14,7 +14,7 @@
         
         </div>
         
-        <button class="btn btn-info my-4 btn-block" type="submit" @click="salvar" > Confirmar </button>
+        <button id="cadaus" class="btn btn-info my-4 btn-block" type="submit" @click="salvar" > Confirmar </button>
         
     </form>
     </div>
@@ -60,7 +60,7 @@ name: 'Cadastrousuario',
 
 <style>
 
-form{
+#cadus{
     width: 500px;
     padding: 40px;
     left: 430px;
@@ -76,7 +76,24 @@ form{
     border-width: 5px;   
 }
 
-button[type="submit"] {
+#cadus input[type="text"],
+#cadus input[type="email"],
+#cadus input[type="password"] {
+    border: 0;
+    background: white;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+button #cadaus[type="submit"] {
     border: 0;
     background: white;
     display: block;
@@ -91,7 +108,7 @@ button[type="submit"] {
     cursor: pointer
 }
 
-button[type="submit"]:hover {
+button #cadaus[type="submit"]:hover {
     background: #2ecc71
 }
 
