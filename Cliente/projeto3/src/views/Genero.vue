@@ -12,7 +12,7 @@
         <li class="genero4"><a class="genero5" href="" @click="genero">Genêros</a></li>
         <li class="genero4"><a class="genero5" href="" @click="autor">Autores</a></li>
         <li class="genero4"><a class="genero5" href="" @click="publicar">Publicar</a></li>
-        <li class="genero4"><a class="genero5" href="" >Perfil</a></li>
+        <li class="genero4"><a class="genero5" href="" @click="perfil">Perfil</a></li>
         <li class="genero4" >
             <input type="search" id="texto"  placeholder="Oq você procura?">
             <img src="../assets/lupa2-removebg-preview.png" height="48" width="60" walt="" class="btn">
@@ -74,6 +74,9 @@ export default {
     };
   },
   methods: {
+    perfil() {
+     this.$router.push({ name: "Perfil"}).catch(()=>{});
+   },
      autor() {
      this.$router.push({ name: "Autor"}).catch(()=>{});
    },

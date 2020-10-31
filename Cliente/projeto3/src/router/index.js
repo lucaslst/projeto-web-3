@@ -7,6 +7,8 @@ import Autor from '../views/Autor.vue'
 import Genero from '../views/Genero.vue'
 import Publicar from '../views/Publicar.vue'
 import Meuslivros from '../views/Meuslivros.vue'
+import EditarLivro from '../views/EditarLivro.vue'
+import Perfil from '../views/Perfil.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,6 +21,16 @@ const routes = [
     path: '/cadastrousuario',
     name: 'Cadastrousuario',
     component: Cadastrousuario
+  },
+  {
+    path: '/editarlivro',
+    name: 'EditarLivro',
+    component: EditarLivro
+  },
+  {
+    path: '/perfil',
+    name: 'Perfil',
+    component: Perfil
   },
   {
     path: '/autor',

@@ -1,20 +1,21 @@
 <template>
-  <div class="cadastrous">
+  <div class="perfil">
    
     <div class="container-fluid">
     <div class="row">
-    <form id= "cadus" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
+    <form id= "perfil1" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
         <img src="../assets/c.png" alt="error" height="110" width="350" >
         <div class="col">
+        <input type="text" id="id" class="form-control " placeholder="ID" v-model="id">
         <input type="text" id="user" class="form-control " placeholder="Nome" v-model="nome">
         <input type="email" id="email" class="form-control mb-4" placeholder="E-mail" v-model="email">
-        <input type="text" id="nascimento" class="form-control mb-4" placeholder="Data de nascimento" v-model="datanascimento">
+        <input type="date" id="nascimento" class="form-control mb-4" placeholder="Data de nascimento" v-model="datanascimento">
         <input type="password" id="senha" class="form-control mb-4" placeholder="Senha" v-model="senha">
         <input type="password" id="confirmasenha" class="form-control mb-4" placeholder="Confirmar Senha" v-model="confirmasenha">
         
         </div>
         
-        <button id="cadaus" class="btn btn-info my-4 btn-block" type="submit" @click="salvar" > Confirmar </button>
+        <button id="perfil2" class="btn btn-info my-4 btn-block" type="submit" @click="editar" > Confirmar </button>
         
     </form>
     </div>
@@ -28,6 +29,7 @@ export default {
 name: 'Cadastrousuario',
  data: function() {
     return {
+      id: "",
       nome: "",
       email: "",
       datanascimento: "",
@@ -37,18 +39,18 @@ name: 'Cadastrousuario',
     };
   },
   methods: {
-    salvar: function() {
+    editar: function() {
       let obj = {
-        usuario: this.usuario,
+        nome: this.nome,
         email: this.email,
         datanascimento: this.datanascimento,
         senha: this.senha
       };
 
-      this.$http.post(this.baseURI, obj).then((result) => {
+      this.$http.put(this.baseURI, obj).then((result) => {
         if (result.data != "") {
           
-          alert("Cadastro realizado com sucesso!");
+          alert("Perfil editado com sucesso!");
           this.$router.push({ name: 'Home'});
         } 
       });
@@ -60,7 +62,7 @@ name: 'Cadastrousuario',
 
 <style>
 
-#cadus{
+#perfil1{
     width: 500px;
     padding: 40px;
     left: 430px;
@@ -76,9 +78,10 @@ name: 'Cadastrousuario',
     border-width: 5px;   
 }
 
-#cadus input[type="text"],
-#cadus input[type="email"],
-#cadus input[type="password"] {
+#perfil1 input[type="text"],
+#pefil1 input[type="email"],
+#pefil1 input[type="date"],
+#perfil1 input[type="password"] {
     border: 0;
     background: white;
     display: block;
@@ -93,7 +96,7 @@ name: 'Cadastrousuario',
     transition: 0.25s
 }
 
-button #cadaus[type="submit"] {
+button #perfil2[type="submit"] {
     border: 0;
     background: white;
     display: block;
@@ -108,7 +111,7 @@ button #cadaus[type="submit"] {
     cursor: pointer
 }
 
-button #cadaus[type="submit"]:hover {
+button #pefil2[type="submit"]:hover {
     background: #2ecc71
 }
 

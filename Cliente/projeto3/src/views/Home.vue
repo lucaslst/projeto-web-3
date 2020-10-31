@@ -12,7 +12,7 @@
         <li class= "h5"><a class = "h6" href="" @click="genero">Genêros</a></li>
         <li class= "h5"><a class = "h6" href="" @click="autor">Autores</a></li>
         <li class= "h5"><a class = "h6" href="" @click="publicar">Publicar</a></li>
-        <li class= "h5"><a class = "h6" href="">Perfil</a></li>
+        <li class= "h5"><a class = "h6" href="" @click="perfil">Perfil</a></li>
         <li class= "h5">
             <input type="search" id="texto"  placeholder="Oq você procura?">
             <img src="../assets/lupa2-removebg-preview.png" height="48" width="60" walt="" class="btn">
@@ -32,6 +32,7 @@
                       <p class="card-text"><img src="../assets/iconecartao.png" alt="erro" height="50" width="50" left="10px"></p>
                       <p style="color: ivory;">R$ 0,00</p>
                       <a href="#" class="btn btn-primary" style="color:ivory" > Adicione Crédito! </a>
+                      <a href="" @click="meuslivros" class="btn btn-primary" style="color:ivory" > Meus Livros </a>
                     </div>
                   </div>
             </div>
@@ -170,6 +171,12 @@ export default {
   methods: {
   autor() {
      this.$router.push({ name: "Autor"}).catch(()=>{});
+   },
+   meuslivros() {
+     this.$router.push({ name: "Meuslivros"}).catch(()=>{});
+   },
+   perfil() {
+     this.$router.push({ name: "Perfil"}).catch(()=>{});
    },
    publicar() {
      this.$router.push({ name: "Publicar"}).catch(()=>{});
