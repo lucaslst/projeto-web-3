@@ -1,19 +1,18 @@
 <template>
-<div class = "home">
-
- <header id= "home3">
+<div class="home">
+  <header id="home3">
     
     <div class="center" id="home1">
     <nav>
    
       <ul id="home2">
-        <li class= "h5"><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
-        <li class= "h5"><a class = "h6" href="" @click="home">Início</a></li>
-        <li class= "h5"><a class = "h6" href="" @click="genero">Genêros</a></li>
-        <li class= "h5"><a class = "h6" href="" @click="autor">Autores</a></li>
-        <li class= "h5"><a class = "h6" href="" @click="publicar">Publicar</a></li>
-        <li class= "h5"><a class = "h6" href="" @click="perfil">Perfil</a></li>
-        <li class= "h5">
+        <li class="h5"><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
+        <li class="h5"><a class="h6" href="" @click="home">Início</a></li>
+        <li class="h5"><a class="h6" href="" @click="genero">Genêros</a></li>
+        <li class="h5"><a class="h6" href="" @click="autor">Autores</a></li>
+        <li class="h5"><a class="h6" href="" @click="publicar">Publicar</a></li>
+        <li class="h5"><a class="h6" href="" @click="perfil">Perfil</a></li>
+        <li class="h5">
             <input type="search" id="texto"  placeholder="Oq você procura?">
             <img src="../assets/lupa2-removebg-preview.png" height="48" width="60" walt="" class="btn">
        </li>
@@ -22,19 +21,21 @@
   </div>
   </header>
   
-    <div class ="container">
+    <div class="container">
         <div class="row">
             <div class="col-4">
                 <div class="card bg-light m-3" style="width: 15rem;  border-radius: 50px 50px 50px 50px;" >
-                    <img class="card-img-top" src="../assets/av-removebg-preview.png" alt="Imagem de capa do card" style="background-color:indigo;  border-radius: 50px 50px 0px 0px;" >
-                    <div class="card-body" style="background-color:indigo;  border-radius: 0px 0px 50px 50px;">
-                      <h5 class="card-title text-center" style="color:ivory"> Olá, Usuário!</h5>
+                    
+                    <div class="card-body" style="background-color:indigo;  border-radius: 0px 0px 50px 50px;"  >
+                      <h5 class="card-title text-center" style="color:ivory">Olá,Usuario </h5> 
                       <p class="card-text"><img src="../assets/iconecartao.png" alt="erro" height="50" width="50" left="10px"></p>
                       <p style="color: ivory;">R$ 0,00</p>
                       <a href="#" class="btn btn-primary" style="color:ivory" > Adicione Crédito! </a>
                       <a href="" @click="meuslivros" class="btn btn-primary" style="color:ivory" > Meus Livros </a>
                     </div>
+                    
                   </div>
+            
             </div>
 
             <div class="col-8">
@@ -75,7 +76,7 @@
     <h2 style="color: ivory; font-weight:bolder;" >Destaques</h2>
     </div>
     <p></p>
-    <div class ="container" style="height: auto;">
+    <div class="container" style="height: auto;">
         <div class="row">
             <div class="col-4">
                 <div class="card" style="width: 18rem;height: 40rem;">
@@ -167,8 +168,14 @@
 
 export default {
   name: 'Home',
-
+ data(){
+   return{
+     usuarios: this.$session.getAll(),
+   }
+ },
+ 
   methods: {
+
   autor() {
      this.$router.push({ name: "Autor"}).catch(()=>{});
    },
@@ -176,7 +183,9 @@ export default {
      this.$router.push({ name: "Meuslivros"}).catch(()=>{});
    },
    perfil() {
+    if (this.$session.exists()) {
      this.$router.push({ name: "Perfil"}).catch(()=>{});
+    }
    },
    publicar() {
      this.$router.push({ name: "Publicar"}).catch(()=>{});

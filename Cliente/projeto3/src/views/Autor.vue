@@ -1,19 +1,19 @@
 <template>
-<div class = "autor">
+<div class="autor">
 
- <header id = "autor3">
+ <header id="autor3">
     
-    <div class="center" id = "autor1">
+    <div class="center" id="autor1">
     <nav>
    
-      <ul id = "autor2">
-        <li class= "autor4"><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
-        <li class= "autor4"><a class= "autor5" href="" @click="home">Início</a></li>
-        <li class= "autor4"><a class= "autor5" href="" @click="genero">Genêros</a></li>
-        <li class= "autor4"><a class= "autor5" href="" @click="autor">Autores</a></li>
-        <li class= "autor4"><a class= "autor5" href="" @click="publicar">Publicar</a></li>
-        <li class= "autor4"><a class= "autor5" href="" @click="perfil">Perfil</a></li>
-        <li class= "autor4">
+      <ul id="autor2">
+        <li class="autor4"><img src="../assets/logof.png" alt="" height="140" width="300" > <img src="../assets/icone.png" height="40" width="50 " alt=""></li>
+        <li class="autor4"><a class="autor5" href="" @click="home">Início</a></li>
+        <li class="autor4"><a class="autor5" href="" @click="genero">Genêros</a></li>
+        <li class="autor4"><a class="autor5" href="" @click="autor">Autores</a></li>
+        <li class="autor4"><a class="autor5" href="" @click="publicar">Publicar</a></li>
+        <li class="autor4"><a class="autor5" href="" @click="perfil">Perfil</a></li>
+        <li class="autor4">
             <input type="search" id="texto"  placeholder="Oq você procura?">
             <img src="../assets/lupa2-removebg-preview.png" height="48" width="60" walt="" class="btn">
         </li>

@@ -1,32 +1,68 @@
 <template>
   <div class="cadastrous">
-   
     <div class="container-fluid">
-    <div class="row">
-    <form id= "cadus" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
-        <img src="../assets/c.png" alt="error" height="110" width="350" >
-        <div class="col">
-        <input type="text" id="user" class="form-control " placeholder="Nome" v-model="nome">
-        <input type="email" id="email" class="form-control mb-4" placeholder="E-mail" v-model="email">
-        <input type="text" id="nascimento" class="form-control mb-4" placeholder="Data de nascimento" v-model="datanascimento">
-        <input type="password" id="senha" class="form-control mb-4" placeholder="Senha" v-model="senha">
-        <input type="password" id="confirmasenha" class="form-control mb-4" placeholder="Confirmar Senha" v-model="confirmasenha">
-        
-        </div>
-        
-        <button id="cadaus" class="btn btn-info my-4 btn-block" type="submit" @click="salvar" > Confirmar </button>
-        
-    </form>
-    </div>
+      <div class="row">
+        <form id="cadus" class="text-center border border-light p-5"
+          action="#!"
+          style="background-color: indigo"
+        >
+          <img src="../assets/c.png" alt="error" height="110" width="350" />
+          <div class="col">
+            <input
+              type="text"
+              id="nome"
+              class="form-control"
+              placeholder="Usuário"
+              v-model="nome"
+            /><br />
+            <input
+              type="email"
+              id="email"
+              class="form-control mb-4"
+              placeholder="E-mail"
+              v-model="email"
+            />
+            <input
+              type="text"
+              id="nascimento"
+              class="form-control mb-4"
+              placeholder="Data de nascimento"
+              v-model="datanascimento"
+              onkeypress="$(this).mask('00/00/0000');"
+            />
+            <input
+              type="password"
+              id="senha"
+              class="form-control mb-4"
+              placeholder="Senha"
+              v-model="senha"
+            />
+            <input
+              type="password"
+              id="confirmasenha"
+              class="form-control mb-4"
+              placeholder="Confirmar Senha"
+              v-model="confirmasenha"
+            />
+          </div>
+
+          <button
+            class="btn btn-info my-4 btn-block"
+            type="submit"
+            @click="salvar"
+          >
+            Confirmar
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-name: 'Cadastrousuario',
- data: function() {
+  name: "Cadastrousuario",
+  data: function () {
     return {
       nome: "",
       email: "",
@@ -36,25 +72,39 @@ name: 'Cadastrousuario',
       baseURI: "http://localhost:8080/api/usuarios",
     };
   },
+  created: function () {
+    if (this.$session.exists()) {
+      this.$router.push({ name: "Home"}).catch(() => {});
+    }
+  },
   methods: {
-    salvar: function() {
+    salvar: function () {
       let obj = {
-        usuario: this.usuario,
+        nome: this.nome,
         email: this.email,
         datanascimento: this.datanascimento,
-        senha: this.senha
+        senha: this.senha,
+        confirmasenha:this.confirmasenha
       };
 
-      this.$http.post(this.baseURI, obj).then((result) => {
-        if (result.data != "") {
-          
-          alert("Cadastro realizado com sucesso!");
-          this.$router.push({ name: 'Home'});
-        } 
-      });
-
- },
- },
+      if (this.nome.length == 0 || this.email.length == 0 || this.senha.length == 0 || this.datanascimento.length ==0 || this.senha.length ==0) {
+        alert("preencha todos os campos!");
+      }if(this.senha != this.confirmasenha){
+        alert("As senhas não conferem");
+      }if(this.senha.length < 8){
+        alert("Senha fraca menos de 8 caracteres!!");
+      }
+        this.$http.post(this.baseURI, obj).then((result) => {
+          if (result.data != "") {
+            this.$session.start();
+            this.$session.set("usuario", JSON.stringify(result.data));
+            alert("Cadastro realizado com sucesso!");
+            this.$router.push({ name: "Home" });
+          } 
+        });
+      
+    },
+  },
 };
 </script>
 

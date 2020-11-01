@@ -3,7 +3,7 @@
    
     <div class="container-fluid">
     <div class="row">
-    <form id= "public" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
+    <form id="public" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
         <img src="../assets/c.png" alt="error" height="110" width="350" >
         <div class="col">
         <input type="text" id="titulo" class="form-control " placeholder="Título" v-model="titulo">
@@ -50,12 +50,22 @@ export default {
         numerototalcapitulos: this.numerototalcapitulos
       };
 
+
+    if(this.titulo.length == 0 || this.genero.length == 0 || this.autor.length == 0 || this.sinopse.length ==0 || this.numerototalcapitulos.length ==0){
+      alert("preencha todos os campos!");
+    }if(this.numerototalcapitulos > 0){
+       alert("O numero de capitulos tem que ser maior que 0!");
+    }
+    else{
       this.$http.post(this.baseURI, obj).then((result) => {
+        if(result.data != ""){
           alert("Cadastro realizado com sucesso!");
           console.log(result);
           this.livro = result.data;
           this.$router.push({ name: 'Home'}); 
+        }
       });
+    }
  },
  },
 };

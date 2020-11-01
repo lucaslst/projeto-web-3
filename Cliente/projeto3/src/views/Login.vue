@@ -1,24 +1,48 @@
 <template>
-<div class="log">
-  <div class="container-fluid">
+  <div class="log">
+    <div class="container-fluid">
       <div class="row">
-          <div class="col-md-6">
-              <div class="card">
-                  <form class="box" id="boxLogin">
-                    <img src="../assets/logof.png" alt="Erro" width=410 height=200>
-                    <img src="../assets/frase.png" alt="Erro" width=400 height=80>
-                      <input type="text" name="" id="elogin" placeholder="Email" v-model="email"> 
-                      <input type="password" name="" id="slogin" placeholder="Senha" v-model="senha"> 
-                      <a class="forgot text-muted" href="#">Esqueceu a senha?</a> 
-                      <p></p>
-                      <a class="forgot text-muted" id="cd" @click="cadastrarusuario"  >Cadastrar-se gratuitamente</a>
-                      <input type="submit" value="Login" @click="logar">
-                  </form>
-              </div>
+        <div class="col-md-6">
+          <div class="card">
+            <form class="box"  >
+              <img
+                src="../assets/logof.png"
+                alt="Erro"
+                width="410"
+                height="200"
+              />
+              <img
+                src="../assets/frase.png"
+                alt="Erro"
+                width="400"
+                height="80"
+              />
+              <input
+                type="text"
+                name=""
+                id="elogin"
+                placeholder="Email"
+                v-model="email"
+              />
+              <input
+                type="password"
+                name=""
+                id="slogin"
+                placeholder="Senha"
+                v-model="senha"
+              />
+              <a class="forgot text-muted" href="#">Esqueceu a senha?</a>
+              <p></p>
+              <a class="forgot text-muted" id="cd" @click="cadastrarusuario"
+                >Cadastrar-se gratuitamente</a
+              >
+              <input type="submit" value="Login" @click="postLogin" />
+            </form>
           </div>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -28,18 +52,51 @@ export default {
     return {
       email: "",
       senha: "",
-      baseURI: "http://localhost:8080/api/usuarios/login",
+      baseURI: "http://localhost:8080/api/usuarios",
     };
   },
-  created: function() {
-    if(localStorage.getItem("usuario")) {
-        this.$router.replace("/home");
-    } 
-  }, 
+  created: function () {
+    if (this.$session.exists()) {
+      this.$router.push({ name: "Home"}).catch(() => {});
+    }
+  },
   methods: {
     cadastrarusuario() {
-     this.$router.push({ name: "Cadastrousuario"}).catch(()=>{});
-   },
+      this.$router.push({ name: "Cadastrousuario" }).catch(() => {});
+    },
+
+    postLogin: function () {
+      let obj = {
+        email: this.email,
+        senha: this.senha,
+      };
+if(this.email.length == 0 || this.senha.length == 0){
+        alert("preencher todos os campos!");
+      }
+      else if(this.email.length < 5){
+        alert("E-Mail inválido!")
+      }
+      else if(this.senha.length < 7){
+        alert(" A senha deve ter no minimo 8 digitos")
+      }
+      else{
+      this.$http.post(this.baseURI, obj).then((result) => {
+          if (result.status === 200) {
+            this.$session.start();
+            this.$session.set("usuario", JSON.stringify(result.data));
+            location.reload();
+          }
+        })
+        
+          if (error.response.status === 401) {
+            alert("Verifique o login e a senha");
+          } else {
+            alert("Erro ao entrar");
+          }
+        
+      }
+    },
+    /*
     logar: function() {
       let obj = {
         email: this.email,
@@ -62,10 +119,9 @@ export default {
         }
       });
       }
-    },
+    },*/
   },
 };
-
 </script>
 
 <style>

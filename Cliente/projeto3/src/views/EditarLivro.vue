@@ -3,10 +3,10 @@
    
     <div class="container-fluid">
     <div class="row">
-    <form id= "edit1" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
+    <form id="edit1" class="text-center border border-light p-5" action="#!" style="background-color: indigo; ">
         <img src="../assets/c.png" alt="error" height="110" width="350" >
         <div class="col">
-        <input type= "text" id="id" class= "form-control" placeholder="id" v-model="id">
+        <input type="text" id="id" class="form-control" placeholder="id" v-model="id">
         <input type="text" id="titulo" class="form-control " placeholder="Título" v-model="titulo">
         <input type="text" id="genero" class="form-control " placeholder="Genero" v-model="genero">
         <input type="text" id="autor" class="form-control " placeholder="Autor" v-model="autor">
